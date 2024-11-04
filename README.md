@@ -145,3 +145,7 @@ The basic principle of this post-processing step is to use the reconstruction lo
 
 Several performance metrics such as balanced accuracy (average of True Positive Rate and True Negative Rate) and False Positive Rate, F1 score, etc. are evaluated in this notebook. Some evaluation plots for the Physionet's PTB Diagnostic Database are:
 
+<img title="a title" alt="SampleECG_RL" src="Reconstruction Loss.png">
+
+<img title="a title" alt="SampleECG_perf_metrics" src="all_metrics.png">
+
