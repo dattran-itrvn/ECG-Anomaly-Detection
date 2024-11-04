@@ -52,7 +52,9 @@ ECG Anomaly Detection at the Edge using MAX78000
 
 ## Overview
 
-In this project, I will explore the fascinating field of electrocardiogram (ECG) signal processing and classification, leveraging the power of a Convolutional Neural Network (CNN) Autoencoder. My selected dataset for this endeavor is the PTB Diagnostic ECG Database, a carefully curated collection of ECG signals designed specifically for diagnostic purposes. My main goal is to build a tiny Autoencoder model tailored to the task of detecting abnormal electrocardiogram (ECG) signals at the Edge using MAX78000.
+In this project, I will explore the fascinating field of electrocardiogram (ECG) signal processing and classification, leveraging the power of a Convolutional Neural Network (CNN) Autoencoder. My selected dataset for this endeavor is the PTB Diagnostic ECG Database, a carefully curated collection of ECG signals designed specifically for diagnostic purposes. My main goal is to build a tiny Autoencoder model tailored to the task of detecting abnormal electrocardiogram (ECG) signals at the Edge using MAX78000. 
+
+The following sections will present the abnormal detection system for the edge devices. The designed model is trained, deployed, and verified on MAX78000 EVkit.
 
 ## Dataset Information
 The PTB Diagnostic ECG Database is a collection of 14,552 ECG recordings sourced from Physionet's PTB Diagnostic Database. These ECG signals are categorized into two classes: normal heartbeats and those affected by cardiac abnormalities. The dataset is sampled at 125Hz, providing high-resolution data for in-depth analysis.
