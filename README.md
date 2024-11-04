@@ -28,4 +28,28 @@ ECG Anomaly Detection at the Edge using MAX78000
    (ai8x-synthesis) $ pip3 install -U pip setuptools
    (ai8x-synthesis) $ pip3 install -r requirements.txt
    ```
+3. Embedded Software Development Kit (MSDK)
+
+   **Prerequisites**
+   ```
+   $ sudo apt update && sudo apt install libxcb-glx0 libxcb-icccm4 libxcb-image0 libxcb-shm0 libxcb-util1 libxcb-keysyms1 libxcb-randr0 libxcb-render-util0 libxcb-render0 libxcb-shape0 libxcb-sync1 libxcb-xfixes0 libxcb-xinerama0 libxcb xkb1 libxcb1 libxkbcommon-x11-0 libxkbcommon0 libgl1 libusb-0.1-4 libhidapi-libusb0 libhidapi-hidraw0
+   ```
+
+   **Download MSDK installer**
+
+   <https://www.analog.com/en/resources/evaluation-hardware-and-software/embedded-development-software/software-download.html?swpart=SFW0018720B>
+
+   **Final Check**
+
+   After a successful manual or MSDK installation, the following commands will run from on the terminal and display their version numbers:
+   ```
+   arm-none-eabi-gcc -v
+   arm-none-eabi-gdb -v
+   make -v
+   openocd -v
+   ```
+   gen-demos-max78000.sh and gen-demos-max78002.sh will create code that is compatible with the MSDK and copy it into the MSDK’s Example directories.
+
 ## Overview
+The following graphic shows an overview of the development flow:
+<img title="a title" alt="Development flow" src="DevelopmentFlow.png">
