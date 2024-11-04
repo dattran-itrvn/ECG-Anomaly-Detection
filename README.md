@@ -51,5 +51,18 @@ ECG Anomaly Detection at the Edge using MAX78000
    gen-demos-max78000.sh and gen-demos-max78002.sh will create code that is compatible with the MSDK and copy it into the MSDK’s Example directories.
 
 ## Overview
-The following graphic shows an overview of the development flow:
-<img title="a title" alt="Development flow" src="DevelopmentFlow.png">
+
+In this project, I will explore the fascinating field of electrocardiogram (ECG) signal processing and classification, leveraging the power of a Convolutional Neural Network (CNN) Autoencoder. My selected dataset for this endeavor is the PTB Diagnostic ECG Database, a carefully curated collection of ECG signals designed specifically for diagnostic purposes. My main goal is to build a tiny Autoencoder model tailored to the task of detecting abnormal electrocardiogram (ECG) signals at the Edge using MAX78000.
+
+## Dataset Information
+The PTB Diagnostic ECG Database is a collection of 14,552 ECG recordings sourced from Physionet's PTB Diagnostic Database. These ECG signals are categorized into two classes: normal heartbeats and those affected by cardiac abnormalities. The dataset is sampled at 125Hz, providing high-resolution data for in-depth analysis.
+
+Let's delve into some essential details about the PTB Diagnostic ECG Database:
+
+* Number of Samples: 14,552
+* Number of Categories: 2
+* Sampling Frequency: 125Hz
+
+Data Source: [Physionet's PTB Diagnostic Database](https://www.kaggle.com/datasets/shayanfazeli/heartbeat)
+
+
