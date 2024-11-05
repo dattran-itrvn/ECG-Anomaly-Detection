@@ -1,0 +1,1 @@
+/home/dattran/Project/MAX/ai8x-training/distiller/distiller/models/mnist/simplenet_mnist.py
