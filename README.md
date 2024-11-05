@@ -148,7 +148,56 @@ Several performance metrics such as balanced accuracy (average of True Positive 
 <img title="a title" alt="SampleECG_perf_metrics" src="all_metrics.png">
 
 ## Model Implementation – Synthesis
+
+### Gen sample input
+This file can be generated using the scripts/evaluate_autoencoder_ecg.sh script in the training repository.
+```
+(ai8x-training) ai8x-training$ scripts/evaluate_autoencoder_ecg.sh
+```
+Ignore this error
+```
+AttributeError: 'Namespace' object has no attribute 'quantize_eval'
+```
+Copy file _sample_sampleecg_forevalwithsignal.npy_ in the project folder to _tests/sample_sampleecg_forevalwithsignal.npy_ in the synthesis repository.
+
 The file located at synthesis repository, (networks/ai85-autoencoder-ecg.yaml) describes to the ai8x synthesizer how the layers of the neural network should be mapped into the MAX78000 hardware.
 
+Below is how to calculate the number of processors needed in _ai85-autoencoder-ecg.yaml_
+```python
+   MAX_PROC = 64
+   def calculate_processors(channels_in: int) -> Tuple[int, int]:
+      """
+      Given a channel count, return the multi-pass adjusted processor count
+      """
+      multipass: int = 1
+      processors = channels_in
+      if processors > MAX_PROC:  # Multi-pass processor count
+         multipass = (processors + MAX_PROC - 1) // MAX_PROC
+         processors = (processors + multipass - 1) // multipass  # Rounded up
+         remainder: int = processors % 4
+         if remainder != 0:
+             remainder = 4 - remainder
+         processors += remainder  # To next multiple of 4
+
+     return processors, multipass
+```
+
 A known answer test (KAT) is also performed on the MAX78000 EVKit. The C code for this KAT can be generated using the scripts/gen_autoencoder_ecg_max78000.sh script in the synthesis repository.
+
+Below is the result from MAX78000 EVKit
+
+```
+---- Opened the serial port /dev/ttyACM0 ----
+Waiting...
+Measuring system base (idle) power...
+
+*** CNN Inference Test autoencoder_ecg ***
+Measuring weight loading...
+Measuring input loading...
+Measuring input load + inference...
+
+*** PASS ***
+
+See monitor display for inference energy.
+```
 
