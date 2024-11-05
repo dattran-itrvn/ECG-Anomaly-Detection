@@ -136,8 +136,6 @@ copy _ai8x-training/logs/2024.11.04-144418/qat_checkpoint.pth.tar_ to _ai8x-synt
 The model quantize script is also available in the synthesis repository [scripts/quantize_autoencoder_ecg_max78000.sh](ai8x-synthesis/scripts/quantize_autoencoder_ecg_max78000.sh)
 
 
-
-
 ## Trained Model Evaluation Notebook
 The trained autoencoder model will generate an output with the input signal shape, and is trained to reconstruct the normal signal as closely as possible. A small post-processing step is required to deploy the model in the arrhythmia detection system: The system should mark some inputs as anomalies using the model output.
 
@@ -148,4 +146,9 @@ Several performance metrics such as balanced accuracy (average of True Positive 
 <img title="a title" alt="SampleECG_RL" src="Reconstruction Loss.png">
 
 <img title="a title" alt="SampleECG_perf_metrics" src="all_metrics.png">
+
+## Model Implementation – Synthesis
+The file located at synthesis repository, (networks/ai85-autoencoder-ecg.yaml) describes to the ai8x synthesizer how the layers of the neural network should be mapped into the MAX78000 hardware.
+
+A known answer test (KAT) is also performed on the MAX78000 EVKit. The C code for this KAT can be generated using the scripts/gen_autoencoder_ecg_max78000.sh script in the synthesis repository.
 
